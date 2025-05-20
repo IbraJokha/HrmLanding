@@ -11,8 +11,8 @@ const modules = [
   { title: 'Onboarding', icon: '📝', slug: 'onboarding', enabled: false },
   { title: 'Asset Management', icon: '💼', slug: 'asset-management', enabled: false },
   { title: 'Announcement', icon: '📢', slug: 'announcement', enabled: false },
-  { title: 'Project Management', icon: '🗂️', slug: 'project-management', features: ['Timesheets', 'Report', 'Configuration'], enabled: false },
-  { title: 'Payroll', icon: '💰', slug: 'payroll', features: ['Payslip', 'Report', 'Configuration'], enabled: false },
+  { title: 'Project Management', icon: '🗂️', slug: 'project-management', enabled: false },
+  { title: 'Payroll', icon: '💰', slug: 'payroll', enabled: false },
   { title: 'User Management', icon: '🧑‍💼', slug: 'user-management', enabled: false },
   { title: 'Qualification', icon: '🎖️', slug: 'qualification', enabled: false },
   { title: 'Configuration', icon: '⚙️', slug: 'configuration', enabled: false },
@@ -87,13 +87,6 @@ const faqs = [
             <a href={`/modules/${module.slug}`} class="bg-white p-4 rounded-lg shadow hover:shadow-md transition flex flex-col items-center text-center hover:bg-gray-50">
               <div class="text-3xl mb-2">{module.icon}</div>
               <h3 class="text-sm font-medium text-gray-800">{module.title}</h3>
-              {module.features && (
-                <ul class="text-gray-500 text-xs space-y-1 mt-1">
-                  {module.features.map((f) => (
-                    <li>• {f}</li>
-                  ))}
-                </ul>
-              )}
             </a>
           ) : (
             <div
@@ -104,13 +97,6 @@ const faqs = [
             >
               <div class="text-3xl mb-2">{module.icon}</div>
               <h3 class="text-sm font-medium text-gray-800">{module.title}</h3>
-              {module.features && (
-                <ul class="text-gray-500 text-xs space-y-1 mt-1">
-                  {module.features.map((f) => (
-                    <li>• {f}</li>
-                  ))}
-                </ul>
-              )}
             </div>
           )
         ))}
