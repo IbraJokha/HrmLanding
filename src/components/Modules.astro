@@ -1,0 +1,123 @@
+---
+const modules = [
+  { title: 'Dashboard', icon: '📊', slug: 'dashboard', featured: true },
+  { title: 'My Details', icon: '👤', slug: 'my-details', featured: true },
+  { title: 'People Hub', icon: '👥', slug: 'people-hub', featured: true },
+  { title: 'Leave', icon: '🌴', slug: 'leave-management', featured: true },
+  { title: 'Attendance', icon: '⏰', slug: 'attendance', featured: true },
+  { title: 'Performance', icon: '📈', slug: 'performance' },
+  { title: 'Discipline', icon: '⚖️', slug: 'discipline' },
+  { title: 'Training', icon: '🎓', slug: 'training' },
+  { title: 'Onboarding', icon: '📝', slug: 'onboarding' },
+  { title: 'Asset Management', icon: '💼', slug: 'asset-management' },
+  { title: 'Announcement', icon: '📢', slug: 'announcement' },
+  { title: 'Project Management', icon: '🗂️', slug: 'project-management', features: ['Timesheets', 'Report', 'Configuration'] },
+  { title: 'Payroll', icon: '💰', slug: 'payroll', features: ['Payslip', 'Report', 'Configuration'] },
+  { title: 'User Management', icon: '🧑‍💼', slug: 'user-management' },
+  { title: 'Job', icon: '📝', slug: 'job' },
+  { title: 'Organization', icon: '🏢', slug: 'organization' },
+  { title: 'Qualification', icon: '🎖️', slug: 'qualification' },
+  { title: 'Announcements', icon: '📣', slug: 'announcements' },
+  { title: 'Configuration', icon: '⚙️', slug: 'configuration' },
+  { title: 'Audit Trail', icon: '🔍', slug: 'audit-trail' },
+];
+
+const faqs = [
+  {
+    question: "Is Screen HRM free to use?",
+    answer: "Yes, Screen HRM is completely free for teams with up to 5 employees. There are no hidden costs or feature limitations in the free tier."
+  },
+  {
+    question: "How secure is my employee data?",
+    answer: "We use bank-level encryption and security protocols to keep your data safe. Our system complies with GDPR, CCPA, and other global privacy regulations."
+  },
+  {
+    question: "Can I import data from my current HR system?",
+    answer: "Absolutely! We provide easy migration tools and personalized support to help you smoothly transition from your existing system."
+  },
+  {
+    question: "How long does implementation take?",
+    answer: "Most customers are up and running within hours. Basic setup takes just minutes, and our step-by-step guides help you configure more advanced features at your own pace."
+  },
+  {
+    question: "What kind of support do you offer?",
+    answer: "We provide 24/7 email support for all users, live chat during business hours, and priority phone support for premium plans. Our comprehensive help center also includes tutorials and guides."
+  }
+];
+---
+<section class="bg-brand-light py-16">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4 text-brand-dark">Modular Solutions</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Pick exactly what you need and leave behind anything you don't. Our modules are designed to solve your biggest HR problems—start with what you need now and add as you grow.
+      </p>
+    </div>
+
+    {/* Featured Modules - First Row */}
+    <div class="mb-10">
+      <h3 class="font-semibold text-xl mb-6 text-brand-primary">Core Modules</h3>
+      <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+        {modules.filter(m => m.featured).map((module) => (
+          <a href={`/modules/${module.slug}`} class="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition flex flex-col items-center text-center hover:ring-2 hover:ring-brand-primary focus:outline-none group border border-brand-primary/20">
+            <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">{module.icon}</div>
+            <h3 class="text-xl font-bold mb-3 text-brand-dark">{module.title}</h3>
+            <div class="bg-brand-primary/10 text-brand-primary text-xs font-medium px-3 py-1 rounded-full">Featured</div>
+          </a>
+        ))}
+      </div>
+    </div>
+    
+    {/* Additional Modules */}
+    <div>
+      <h3 class="font-semibold text-xl mb-6 text-gray-600">Additional Modules</h3>
+      <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+        {modules.filter(m => !m.featured).map((module) => (
+          <a href={`/modules/${module.slug}`} class="bg-white p-4 rounded-lg shadow hover:shadow-md transition flex flex-col items-center text-center hover:bg-gray-50">
+            <div class="text-3xl mb-2">{module.icon}</div>
+            <h3 class="text-sm font-medium text-gray-800">{module.title}</h3>
+            {module.features && (
+              <ul class="text-gray-500 text-xs space-y-1 mt-1">
+                {module.features.map((f) => (
+                  <li>• {f}</li>
+                ))}
+              </ul>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+    
+    {/* FAQ Section */}
+    <div class="mt-24 max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-brand-dark">Frequently Asked Questions</h2>
+      
+      <div class="space-y-6">
+        {faqs.map((faq, index) => (
+          <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+            <details class="group">
+              <summary class="flex justify-between items-center p-6 cursor-pointer list-none text-lg font-medium text-brand-dark">
+                <span>{faq.question}</span>
+                <span class="transition-transform group-open:rotate-180">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 pt-0">
+                <p class="text-gray-600">{faq.answer}</p>
+              </div>
+            </details>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-10 text-center">
+        <p class="text-gray-600 mb-6">Still have questions? We're here to help.</p>
+        <a href="/contact-us" class="inline-block bg-brand-primary text-white font-medium px-6 py-3 rounded-lg hover:bg-brand-primary/90 transition">
+          Contact Support
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

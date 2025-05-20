@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const steps = [
+  {
+    image: '/images/EmployeeHub/employeeList.png',
+    title: 'Complete Employee Directory',
+    desc: 'Effortlessly view and manage your entire employee database. Access detailed profiles with photos, contact information, and employment details at a glance—designed for quick navigation and efficient HR management.',
+    accent: 'from-blue-400 to-blue-600',
+  },
+  {
+    image: '/images/EmployeeHub/reportGraphs.png',
+    title: 'Interactive Organization Charts',
+    desc: 'Create custom filters to segment your workforce by department, location, skills, or any other criteria. Find exactly who you need with powerful search tools that put employee information at your fingertips.',
+    accent: 'from-purple-400 to-purple-600',
+  },
+];
+---
+<BaseLayout title="People Hub - Screen HRM">
+  <Header slot="header" />
+  <section class="bg-gradient-to-b from-[#eaf0ff] via-[#f4f7fe] to-[#eaf0ff] py-12 min-h-screen">
+    <div class="container mx-auto px-2 md:px-4 max-w-[1800px]">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-brand-dark mb-16 text-center">
+        People Hub Module
+      </h1>
+      <div class="flex flex-col gap-24">
+        {/* First two features */}
+        {steps.map((step, idx) => (
+          <div
+            class={`relative flex flex-col md:flex-row ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''} items-center`}
+            key={idx}
+          >
+            <div class="relative w-full flex justify-center transition-transform duration-300 hover:scale-[1.02]">
+              <div class="w-full max-w-7xl">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  class="w-full rounded-3xl shadow-2xl border-4 border-white object-contain transition-all duration-300"
+                  loading="lazy"
+                />
+              </div>
+              {/* Overlayed text */}
+              <div class="absolute bottom-0 left-0 right-0 md:left-auto md:right-12 md:bottom-12 md:w-[30%] p-4 md:p-8">
+                <div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border-l-8 border-blue-400 p-6 md:p-10 text-left">
+                  <h2 class="text-2xl md:text-4xl font-extrabold mb-3 text-brand-primary">{step.title}</h2>
+                  <p class="text-base md:text-lg text-gray-700">{step.desc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Third feature with a single image (employeeFilters.png) */}
+        <div class="relative flex flex-col md:flex-row items-center"> {/* Default: image left, text right */}
+          <div class="relative w-full flex justify-center transition-transform duration-300 hover:scale-[1.02]">
+            <div class="w-full max-w-7xl">
+              <img
+                src="/images/EmployeeHub/employeeFilters.png"
+                alt="Advanced Reports & Graphs"
+                class="w-full rounded-3xl shadow-2xl border-4 border-white object-contain transition-all duration-300"
+                loading="lazy"
+              />
+            </div>
+            {/* Overlayed text - consistent with other features */}
+            <div class="absolute bottom-0 left-0 right-0 md:left-auto md:right-12 md:bottom-12 md:w-[30%] p-4 md:p-8">
+              <div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border-l-8 border-blue-400 p-6 md:p-10 text-left">
+                <h2 class="text-2xl md:text-4xl font-extrabold mb-3 text-brand-primary">Advanced Reports & Graphs</h2>
+                <p class="text-base md:text-lg text-gray-700">
+                  Visualize your HR data like never before! Instantly generate custom reports and interactive graphs to analyze trends, monitor KPIs, and make data-driven decisions. Perfect for managers who want insights at a glance and detailed analytics when needed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>

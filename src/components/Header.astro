@@ -1,0 +1,64 @@
+---
+// No imports
+---
+
+<header class="bg-gradient-to-r from-indigo-500 to-violet-500 shadow-sm sticky top-0 z-50">
+  <div class="container mx-auto px-4 flex justify-between items-center py-4">
+    <a href="/" class="flex items-center">
+      <img src="/screen-hrm-logo.png" alt="Screen HRM Logo" class="h-10 w-auto" />
+    </a>
+    
+    <nav class="hidden md:flex items-center space-x-6">
+      <a href="/" class="text-white hover:text-brand-accent transition">Home</a>
+      <a href="/modules" class="text-white hover:text-brand-accent transition">Modules</a>
+      <a href="/pricing" class="text-white hover:text-brand-accent transition">Pricing</a>
+      <a href="/contact-us" class="text-white hover:text-brand-accent transition">Contact</a>
+      
+      <!-- Call-to-action button -->
+      <a 
+        href="/book-discovery-call" 
+        class="ml-4 bg-brand-accent text-white font-medium px-5 py-2 rounded-lg hover:bg-white hover:text-brand-accent transition-colors shadow-md flex items-center"
+      >
+        <span>Book a Discovery Call</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </nav>
+    
+    <!-- Mobile menu button -->
+    <button class="md:hidden text-gray-500 hover:text-gray-700" id="mobile-menu-button">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Mobile menu (hidden by default) -->
+  <div class="md:hidden hidden bg-white absolute w-full border-b border-gray-200" id="mobile-menu">
+    <div class="container mx-auto px-4 py-3 space-y-3">
+      <a href="/" class="block text-gray-600 hover:text-brand-primary">Home</a>
+      <a href="/modules" class="block text-gray-600 hover:text-brand-primary">Modules</a>
+      <a href="/pricing" class="block text-gray-600 hover:text-brand-primary">Pricing</a>
+      <a href="/contact-us" class="block text-gray-600 hover:text-brand-primary">Contact</a>
+      <a 
+        href="/book-discovery-call" 
+        class="block bg-brand-primary/10 text-brand-primary font-medium px-4 py-2 rounded-lg"
+      >
+        Book a Discovery Call
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>

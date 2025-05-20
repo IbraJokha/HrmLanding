@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const leaveFeatures = [
+  {
+    image: '/images/Leaves/myLeaves.png',
+    title: 'Streamlined Leave Requests',
+    desc: 'Employees can easily submit leave requests, view their leave balances, and track the status of their applications in real-time. A simple interface for managing personal time off.',
+    accent: 'from-teal-400 to-teal-600',
+  },
+  {
+    image: '/images/Leaves/leaveCalender.png',
+    title: 'Comprehensive Team Calendar',
+    desc: 'Managers get a clear overview of team schedules with an interactive leave calendar. Plan resources effectively, avoid clashes, and approve requests with full visibility.',
+    accent: 'from-cyan-400 to-cyan-600',
+  },
+  {
+    image: '/images/Leaves/leaveConfiguration.png',
+    title: 'Flexible Leave Policies',
+    desc: 'Configure diverse leave types, accrual rules, and approval workflows to match your organization\'s specific policies. Tailor the system to your unique operational needs.',
+    accent: 'from-sky-400 to-sky-600',
+  },
+];
+---
+
+<BaseLayout title="Leave Management - Screen HRM">
+  <Header slot="header" />
+  <section class="bg-gradient-to-b from-[#eaf0ff] via-[#f4f7fe] to-[#eaf0ff] py-12 min-h-screen">
+    <div class="container mx-auto px-2 md:px-4 max-w-[1800px]">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-brand-dark mb-16 text-center">
+        Leave Management Module
+      </h1>
+      <div class="flex flex-col gap-24">
+        {leaveFeatures.map((feature, idx) => (
+          <div
+            class={`relative flex flex-col md:flex-row ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''} items-center`}
+            key={idx}
+          >
+            <div class="relative w-full flex justify-center transition-transform duration-300 hover:scale-[1.02]">
+              <div class="w-full max-w-7xl">
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  class="w-full rounded-3xl shadow-2xl border-4 border-white object-contain transition-all duration-300"
+                  loading="lazy"
+                />
+              </div>
+              {/* Overlayed text */}
+              <div class="absolute bottom-0 left-0 right-0 md:left-auto md:right-12 md:bottom-12 md:w-[30%] p-4 md:p-8">
+                <div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border-l-8 border-blue-400 p-6 md:p-10 text-left">
+                  <h2 class="text-2xl md:text-4xl font-extrabold mb-3 text-brand-primary">{feature.title}</h2>
+                  <p class="text-base md:text-lg text-gray-700">{feature.desc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>
