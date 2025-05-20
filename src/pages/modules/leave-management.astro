@@ -5,19 +5,19 @@ import Footer from '../../components/Footer.astro';
 
 const leaveFeatures = [
   {
-    image: '/images/Leaves/myLeaves.png',
+    image: `${import.meta.env.SITE || ''}/images/Leaves/myLeaves.png`,
     title: 'Streamlined Leave Requests',
     desc: 'Employees can easily submit leave requests, view their leave balances, and track the status of their applications in real-time. A simple interface for managing personal time off.',
     accent: 'from-teal-400 to-teal-600',
   },
   {
-    image: '/images/Leaves/leaveCalender.png',
+    image: `${import.meta.env.SITE || ''}/images/Leaves/leaveCalender.png`,
     title: 'Comprehensive Team Calendar',
     desc: 'Managers get a clear overview of team schedules with an interactive leave calendar. Plan resources effectively, avoid clashes, and approve requests with full visibility.',
     accent: 'from-cyan-400 to-cyan-600',
   },
   {
-    image: '/images/Leaves/leaveConfiguration.png',
+    image: `${import.meta.env.SITE || ''}/images/Leaves/leaveConfiguration.png`,
     title: 'Flexible Leave Policies',
     desc: 'Configure diverse leave types, accrual rules, and approval workflows to match your organization\'s specific policies. Tailor the system to your unique operational needs.',
     accent: 'from-sky-400 to-sky-600',
@@ -45,8 +45,6 @@ const leaveFeatures = [
                   alt={feature.title}
                   class="w-full rounded-3xl shadow-2xl border-4 border-white object-contain transition-all duration-300"
                   loading="lazy"
-                  onError="this.onerror=null; this.src='https://via.placeholder.com/800x600?text=Image+Not+Found:'+encodeURIComponent(this.getAttribute('data-original')); console.log('Failed to load: ' + this.getAttribute('data-original'));"
-                  data-original={feature.image}
                 />
               </div>
               {/* Overlayed text */}
