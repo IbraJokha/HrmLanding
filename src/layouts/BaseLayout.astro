@@ -7,12 +7,23 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<html lang="en">  <head>    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- PNG favicons for specific sizes -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <!-- Apple Touch Icon for iOS -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Android Chrome icons for PWA -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Animation styles -->
+    <link rel="stylesheet" href="/styles/aos.css" />
   </head>
   <body class="flex flex-col min-h-screen">
     <slot name="header">
@@ -40,9 +51,43 @@ const { title } = Astro.props;
         });
       }
     </script>
-    <!--Start of Tawk.to Script-->
+    <script>
+      // AOS animation initialization
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initialize animations
+        const animateElements = document.querySelectorAll('[data-aos]');
+        
+        // Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('aos-animate');
+              // Once animated, no need to observe anymore
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+        
+        // Observe all elements with data-aos attribute
+        animateElements.forEach(element => {
+          observer.observe(element);
+        });
+      });
+    </script>    <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    var Tawk_API=Tawk_API||{};
+    Tawk_API.disableNotifications = true; // Disable notifications
+    Tawk_API.onBeforeLoad = function(){
+        // Disable title alerts when new messages arrive
+        Tawk_API.hideWidget = false;
+        Tawk_API.disableMobileBackHistory = true;
+        Tawk_API.disableWidgetSound = true;
+        Tawk_API.disablePrechatForm = true;
+    };
+    
+    Tawk_LoadStart=new Date();
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
@@ -51,7 +96,30 @@ const { title } = Astro.props;
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();
+
+    // Prevent Tawk.to from changing the page title
+    var originalTitle = document.title;
+    setInterval(function() {
+        if (document.title !== originalTitle) {
+            document.title = originalTitle;
+        }
+    }, 100);
     </script>
     <!--End of Tawk.to Script-->
+    <!-- AOS (Animate On Scroll) Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initialize AOS for smooth animations
+        if (typeof window.AOS !== 'undefined') {
+          window.AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+          });
+        }
+      });
+    </script>
   </body>
 </html>

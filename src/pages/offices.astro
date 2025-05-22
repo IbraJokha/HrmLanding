@@ -100,6 +100,47 @@ import Footer from '../components/Footer.astro';
               </svg>
             </a>
           </div>
+        </div>        <!-- Asia Office -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-3 bg-brand-accent/10 rounded-bl-xl z-0">
+            <span class="text-sm font-bold text-brand-accent">Asia</span>
+          </div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 bg-brand-accent/20 rounded-full flex items-center justify-center text-brand-accent mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-brand-dark mb-2">Philippines Office</h2>
+            <h3 class="text-lg font-semibold text-brand-accent mb-4">Makati City, Philippines</h3>
+            <address class="not-italic text-gray-700 mb-6 space-y-2">
+              <p>Rm 2007, 20th Floor Cityland 10 Tower II</p>
+              <p>#156 H.V. Dela Costa St., Salcedo Village</p>
+              <p>Makati City 1227, Philippines</p>
+            </address>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-accent mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:info@screenhrm.com" class="text-gray-700 hover:text-brand-accent transition">info@screenhrm.com</a>
+              </div>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-accent mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span class="text-gray-700">Tel: +63 (0)9175304884</span>
+              </div>
+            </div>
+            <a href="https://maps.google.com/?q=Rm+2007,+20th+Floor+Cityland+10+Tower+II,+156+H.V.+Dela+Costa+St.,+Salcedo+Village,+Makati+City+1227,+Philippines" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-brand-accent hover:text-brand-primary transition flex items-center">
+              <span>View on Google Maps</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <p class="text-xs text-gray-400 mt-4">* This is a partner office</p>
+          </div>
         </div>
       </div>      <!-- Interactive Map -->
       <div class="mt-16">
@@ -108,6 +149,7 @@ import Footer from '../components/Footer.astro';
           <div class="flex space-x-2">
             <button id="map-london" class="px-4 py-2 bg-brand-primary text-white rounded-lg text-sm font-medium hover:bg-brand-primary/90 transition">London Office</button>
             <button id="map-budapest" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-300 transition">Budapest Office</button>
+            <button id="map-philippines" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-300 transition">Philippines Office</button>
           </div>
         </div>
 
@@ -130,20 +172,20 @@ import Footer from '../components/Footer.astro';
             </svg>
           </button>
         </div>
-      </div>
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const mapIframe = document.getElementById('map-iframe');
     const londonBtn = document.getElementById('map-london');
     const budapestBtn = document.getElementById('map-budapest');
+    const philippinesBtn = document.getElementById('map-philippines');
     const fullscreenBtn = document.getElementById('fullscreen-btn');
     
     // Map URLs
     const londonMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.0166170553747!2d-0.16885772355214348!3d51.43150117189377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604880e4a7beb%3A0x9da2394e9be9bda9!2s188%20Mitcham%20Rd%2C%20London%20SW17%209NJ%2C%20UK!5e0!3m2!1sen!2sus!4v1716263714458!5m2!1sen!2sus";
     const budapestMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.5378128688924!2d19.04813807723847!3d47.4947830715108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc41c012e5d5%3A0x97fe3e2b3c6d8314!2zRGXDoWsgRmVyZW5jIHV0Y2EgMTcsIDEwNTIgQnVkYXBlc3QsIEh1bmdhcnk!5e0!3m2!1sen!2sus!4v1716263765176!5m2!1sen!2sus";
+    const philippinesMapUrl = "https://www.google.com/maps?q=Rm+2007,+20th+Floor+Cityland+10+Tower+II,+156+H.V.+Dela+Costa+St.,+Salcedo+Village,+Makati+City+1227,+Philippines&output=embed";
     
-    if (londonBtn && budapestBtn && mapIframe) {
+    if (londonBtn && budapestBtn && philippinesBtn && mapIframe) {
       // London office button
       londonBtn.addEventListener('click', () => {
         mapIframe.src = londonMapUrl;
@@ -151,6 +193,8 @@ import Footer from '../components/Footer.astro';
         londonBtn.classList.add('bg-brand-primary', 'text-white');
         budapestBtn.classList.remove('bg-brand-primary', 'text-white');
         budapestBtn.classList.add('bg-gray-200', 'text-gray-700');
+        philippinesBtn.classList.remove('bg-brand-primary', 'text-white');
+        philippinesBtn.classList.add('bg-gray-200', 'text-gray-700');
       });
       
       // Budapest office button
@@ -160,6 +204,19 @@ import Footer from '../components/Footer.astro';
         budapestBtn.classList.add('bg-brand-primary', 'text-white');
         londonBtn.classList.remove('bg-brand-primary', 'text-white');
         londonBtn.classList.add('bg-gray-200', 'text-gray-700');
+        philippinesBtn.classList.remove('bg-brand-primary', 'text-white');
+        philippinesBtn.classList.add('bg-gray-200', 'text-gray-700');
+      });
+      
+      // Philippines office button
+      philippinesBtn.addEventListener('click', () => {
+        mapIframe.src = philippinesMapUrl;
+        philippinesBtn.classList.remove('bg-gray-200', 'text-gray-700');
+        philippinesBtn.classList.add('bg-brand-primary', 'text-white');
+        londonBtn.classList.remove('bg-brand-primary', 'text-white');
+        londonBtn.classList.add('bg-gray-200', 'text-gray-700');
+        budapestBtn.classList.remove('bg-brand-primary', 'text-white');
+        budapestBtn.classList.add('bg-gray-200', 'text-gray-700');
       });
     }
     

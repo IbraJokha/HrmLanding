@@ -1,0 +1,71 @@
+/* AOS (Animate On Scroll) styles */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-timing-function: ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+[data-aos="fade-up"] {
+    transform: translate3d(0, 30px, 0);
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translate3d(0, 0, 0);
+}
+
+[data-aos="fade-right"] {
+    transform: translate3d(-30px, 0, 0);
+}
+
+[data-aos="fade-right"].aos-animate {
+    transform: translate3d(0, 0, 0);
+}
+
+[data-aos="fade-left"] {
+    transform: translate3d(30px, 0, 0);
+}
+
+[data-aos="fade-left"].aos-animate {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Default AOS duration and delay */
+[data-aos] {
+    transition-duration: 600ms;
+}
+
+[data-aos][data-aos-delay="100"] {
+    transition-delay: 100ms;
+}
+
+[data-aos][data-aos-delay="200"] {
+    transition-delay: 200ms;
+}
+
+[data-aos][data-aos-delay="300"] {
+    transition-delay: 300ms;
+}
+
+[data-aos][data-aos-delay="400"] {
+    transition-delay: 400ms;
+}
+
+[data-aos][data-aos-delay="500"] {
+    transition-delay: 500ms;
+}
+
+[data-aos][data-aos-delay="600"] {
+    transition-delay: 600ms;
+}
+
+[data-aos][data-aos-delay="700"] {
+    transition-delay: 700ms;
+}
+
+[data-aos][data-aos-delay="800"] {
+    transition-delay: 800ms;
+}

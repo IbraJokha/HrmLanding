@@ -1,0 +1,102 @@
+---
+// FeatureHighlights.astro: A visually engaging, features overview section for the homepage, similar to https://www.normahr.ro/
+---
+<section class="relative py-20 bg-gradient-to-b from-white to-[#f7faff] overflow-hidden">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Everything You Need in One Platform</h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">Powerful features designed to simplify your HR management and boost productivity.</p>
+    </div>
+    
+    <!-- Features grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-14 h-14 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-brand-dark mb-3">Employee Management</h3>
+        <p class="text-gray-600">Comprehensive profiles, documents, and everything you need to manage your team effectively.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-14 h-14 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-brand-dark mb-3">Leave Management</h3>
+        <p class="text-gray-600">Track and approve leaves, configure policies, and maintain complete attendance records.</p>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-14 h-14 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-brand-dark mb-3">Smart Analytics</h3>
+        <p class="text-gray-600">Powerful insights with custom reports and dashboards to track key HR metrics.</p>
+      </div>
+      
+      <!-- Feature 4 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-14 h-14 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-brand-dark mb-3">Time Tracking</h3>
+        <p class="text-gray-600">Accurate attendance tracking with flexible options for remote and on-site employees.</p>
+      </div>
+      
+      <!-- Feature 5 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-14 h-14 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-brand-dark mb-3">Document Management</h3>
+        <p class="text-gray-600">Centralized storage for all your HR documents with secure access controls.</p>
+      </div>
+      
+      <!-- Feature 6 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-14 h-14 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-brand-dark mb-3">Mobile Access</h3>
+        <p class="text-gray-600">State-of-the-art mobile app for managing HR tasks on the go from any device.</p>
+      </div>
+    </div>
+    
+    <!-- Call to action -->
+    <div class="mt-16 text-center">
+      <a href="/book-personalised-call" class="inline-block bg-brand-primary hover:bg-brand-accent text-white font-bold px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+        See All Features
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Add AOS (Animate On Scroll) for smooth transitions - remember to include the AOS library in your BaseLayout.astro
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize AOS if it exists
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }
+});
+</script>
