@@ -15,8 +15,7 @@ import Footer from '../components/Footer.astro';
         Screen HRM has offices strategically located to serve clients worldwide.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">        <!-- UK Headquarters -->
-        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 relative overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">        <!-- UK Headquarters -->        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 relative overflow-hidden w-full">
           <div class="absolute top-0 right-0 p-3 bg-brand-primary/10 rounded-bl-xl z-0">
             <span class="text-sm font-bold text-brand-primary">HQ</span>
           </div>
@@ -58,8 +57,7 @@ import Footer from '../components/Footer.astro';
               </svg>
             </a>
           </div>
-        </div>        <!-- Eastern Europe Office -->
-        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 relative overflow-hidden">
+        </div>        <!-- Eastern Europe Office -->        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 relative overflow-hidden w-full">
           <div class="absolute top-0 right-0 p-3 bg-brand-accent/10 rounded-bl-xl z-0">
             <span class="text-sm font-bold text-brand-accent">EU</span>
           </div>
@@ -100,8 +98,7 @@ import Footer from '../components/Footer.astro';
               </svg>
             </a>
           </div>
-        </div>        <!-- Asia Office -->
-        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 relative overflow-hidden">
+        </div>        <!-- Asia Office -->        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 relative overflow-hidden w-full">
           <div class="absolute top-0 right-0 p-3 bg-brand-accent/10 rounded-bl-xl z-0">
             <span class="text-sm font-bold text-brand-accent">Asia</span>
           </div>
@@ -139,7 +136,16 @@ import Footer from '../components/Footer.astro';
             </a>
           </div>
         </div>
-      </div>      <!-- Interactive Map -->
+      </div>
+      
+      <!-- Become a Partner Button -->
+      <div class="mt-12 mb-16 text-center">
+        <a href="#partnership-form" class="inline-block bg-brand-accent text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-brand-accent/90 transition transform hover:-translate-y-1">
+          Become Our Partner
+        </a>
+      </div>
+      
+      <!-- Interactive Map -->
       <div class="mt-16">
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-2xl font-bold text-brand-dark">Find Us</h2>
@@ -169,9 +175,8 @@ import Footer from '../components/Footer.astro';
             </svg>
           </button>
         </div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const mapIframe = document.getElementById('map-iframe');
+<script>  document.addEventListener('DOMContentLoaded', () => {
+    const mapIframe = document.getElementById('map-iframe') as HTMLIFrameElement;
     const londonBtn = document.getElementById('map-london');
     const budapestBtn = document.getElementById('map-budapest');
     const philippinesBtn = document.getElementById('map-philippines');
@@ -215,22 +220,209 @@ import Footer from '../components/Footer.astro';
         budapestBtn.classList.remove('bg-brand-primary', 'text-white');
         budapestBtn.classList.add('bg-gray-200', 'text-gray-700');
       });
-    }
-    
-    // Fullscreen button
+    }      // Fullscreen button
     if (fullscreenBtn && mapIframe) {
       fullscreenBtn.addEventListener('click', () => {
         if (mapIframe.requestFullscreen) {
           mapIframe.requestFullscreen();
-        } else if (mapIframe.webkitRequestFullscreen) {
-          mapIframe.webkitRequestFullscreen();
-        } else if (mapIframe.msRequestFullscreen) {
-          mapIframe.msRequestFullscreen();
+        } else if ((mapIframe as any).webkitRequestFullscreen) {
+          (mapIframe as any).webkitRequestFullscreen();
+        } else if ((mapIframe as any).msRequestFullscreen) {
+          (mapIframe as any).msRequestFullscreen();
         }
       });
     }
   });
-</script>
+</script>      <!-- Partnership Form Section -->      <div class="mt-20 pt-16 border-t border-gray-200" id="partnership-form">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6 text-center">
+            Become Our Partner
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 text-center">
+            Interested in partnering with Screen HRM? Fill out the form below and our team will get in touch with you.
+          </p>          <form action="https://formspree.io/f/movdojjo" method="POST" class="bg-white p-8 rounded-2xl shadow-lg" id="partnershipForm">            <!-- Honeypot field to prevent spam -->            <input type="text" name="_gotcha" style="display:none" />
+            <!-- Subject field for better email organization -->
+            <input type="hidden" name="_subject" value="New Partnership Request from Website" />
+            <!-- Fallback redirect URL if JavaScript is disabled -->
+            <input type="hidden" name="_next" value="https://screenhrm.com" />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="col-span-1">
+                <label for="companyName" class="block text-sm font-medium text-gray-700 mb-1">Company Name *</label>
+                <input 
+                  type="text" 
+                  id="companyName" 
+                  name="companyName" 
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"
+                />
+              </div>
+              
+              <div class="col-span-1">
+                <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country *</label>
+                <input 
+                  type="text" 
+                  id="country" 
+                  name="country" 
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"
+                />
+              </div>
+              
+              <div class="col-span-1">
+                <label for="contactName" class="block text-sm font-medium text-gray-700 mb-1">Contact Person Name *</label>
+                <input 
+                  type="text" 
+                  id="contactName" 
+                  name="contactName" 
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"
+                />
+              </div>
+              
+              <div class="col-span-1">
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"
+                />
+              </div>
+              
+              <div class="col-span-1">
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"
+                />
+              </div>
+                <div class="col-span-1">
+                <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Company Website</label>
+                <input 
+                  type="text" 
+                  id="website" 
+                  name="website" 
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"
+                />
+              </div>
+              
+              <div class="col-span-2">
+                <label for="partnershipType" class="block text-sm font-medium text-gray-700 mb-1">Partnership Type *</label>
+                <select 
+                  id="partnershipType" 
+                  name="partnershipType" 
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"
+                >
+                  <option value="" selected disabled>Select partnership type</option>
+                  <option value="reseller">Reseller Partner</option>
+                  <option value="implementation">Implementation Partner</option>
+                  <option value="technology">Technology Partner</option>
+                  <option value="strategic">Strategic Partner</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="col-span-2">
+                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Tell us more about your company and why you want to partner *</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="4" 
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition"
+                ></textarea>
+              </div>
+              
+              <div class="col-span-2">
+                <div class="flex items-start">
+                  <input 
+                    type="checkbox" 
+                    id="privacyPolicy" 
+                    name="privacyPolicy" 
+                    required
+                    class="mt-1 h-5 w-5 text-brand-primary border-gray-300 rounded focus:ring-brand-primary"
+                  />
+                  <label for="privacyPolicy" class="ml-2 block text-sm text-gray-700">
+                    I agree to Screen HRM's privacy policy and terms of service *
+                  </label>
+                </div>
+              </div>
+              
+              <div class="col-span-2 mt-4">                <button 
+                  type="submit" 
+                  class="w-full bg-brand-primary text-white font-bold py-3 px-6 rounded-lg shadow hover:bg-brand-primary/90 transition"
+                >
+                  Submit Partnership Request
+                </button>
+                <div id="formStatus" class="hidden mt-4 p-4 rounded-lg text-center font-medium"></div>
+              </div>
+            </div>          </form>          <script>
+            // Handle form submission via Formspree
+            document.addEventListener('DOMContentLoaded', () => {
+              const form = document.getElementById('partnershipForm') as HTMLFormElement;
+              const formStatus = document.getElementById('formStatus');
+              
+              if (form && formStatus) {
+                form.addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  
+                  // Show loading state
+                  const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+                  const originalBtnText = submitBtn.textContent || 'Submit Partnership Request';
+                  submitBtn.disabled = true;
+                  submitBtn.textContent = 'Sending...';
+                  
+                  // Submit to Formspree
+                  const formData = new FormData(form);
+                  
+                  fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                      'Accept': 'application/json'
+                    }
+                  })
+                  .then(response => {
+                    if (response.ok) {
+                      return response.json();
+                    }
+                    throw new Error('Network response was not ok');
+                  })
+                  .then(data => {
+                    // Success
+                    form.reset();
+                    formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                    formStatus.classList.add('bg-green-100', 'text-green-700', 'p-4');
+                    formStatus.textContent = 'Thank you for your submission! We will get back to you soon.';
+                    
+                    // Scroll to the status message
+                    formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  })
+                  .catch(error => {
+                    // Error
+                    console.error('Error:', error);
+                    formStatus.classList.remove('hidden', 'bg-green-100', 'text-green-700');
+                    formStatus.classList.add('bg-red-100', 'text-red-700', 'p-4');
+                    formStatus.textContent = 'Oops! There was a problem submitting your form. Please try again.';
+                    
+                    // Scroll to the status message
+                    formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  })
+                  .finally(() => {
+                    formStatus.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                  });
+                });
+              }
+            });
+          </script>
+        </div>
+      </div>
 
       <!-- Call to action -->
       <div class="mt-12 text-center">
