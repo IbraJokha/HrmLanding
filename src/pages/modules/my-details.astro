@@ -1,0 +1,11 @@
+---
+// Redirect to my-card page to prevent duplicate content
+export const prerender = true;
+export async function getStaticPaths() {
+  return [];
+}
+
+export function GET({ redirect }) {
+  return redirect('/modules/my-card', 301);
+}
+---

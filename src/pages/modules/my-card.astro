@@ -26,8 +26,15 @@ const features = [
   <Header slot="header" />
   <section class="bg-gradient-to-b from-[#eaf0ff] via-[#f4f7fe] to-[#eaf0ff] py-12 min-h-screen">
     <div class="container mx-auto px-2 md:px-4 max-w-[1800px]">
-      <h1 class="text-4xl md:text-6xl font-extrabold text-brand-dark mb-16 text-center">
-        My Card Module
+      <!-- Back button at the top -->
+      <div class="text-left mb-6" data-aos="fade-right">
+        <a href="/modules" class="inline-block bg-brand-primary text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-brand-accent transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-lg">
+          ← Back to Modules
+        </a>
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-extrabold text-brand-dark mb-16 text-center animate-fade-in">
+        My Card
       </h1>
       <div class="flex flex-col gap-16 md:gap-24">
         {features.map((feature, idx) => (
@@ -35,10 +42,10 @@ const features = [
             {/* Mobile view - completely stacked */}
             <div class="flex flex-col md:hidden">
               {/* Mobile title */}
-              <h2 class="text-2xl font-bold text-brand-primary text-center mb-4">{feature.title}</h2>
+              <h2 class="text-2xl font-bold text-brand-primary text-center mb-4" data-aos="fade-up">{feature.title}</h2>
               
               {/* Mobile image */}
-              <div class="w-full mb-4">
+              <div class="w-full mb-4" data-aos="fade-up" data-aos-delay="100">
                 <img
                   src={feature.image}
                   alt={feature.title}
@@ -48,25 +55,36 @@ const features = [
               </div>
               
               {/* Mobile description */}
-              <div class="w-full mb-6 p-5 bg-white rounded-xl shadow-lg border-l-4 border-blue-400">
+              <div class="w-full mb-6 p-5 bg-white rounded-xl shadow-lg border-l-4 border-blue-400" data-aos="fade-up" data-aos-delay="200">
                 <p class="text-base text-gray-700">{feature.desc}</p>
               </div>
             </div>
             
-            {/* Desktop view - UNCHANGED */}
+            {/* Desktop view */}
             <div class={`hidden md:flex md:flex-row ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''} items-center`}>
-              <div class="relative w-full flex justify-center transition-transform duration-300 hover:scale-[1.02]">
-                <div class="w-full max-w-7xl">
+              <div class="relative w-full flex justify-center group">
+                <div 
+                  class="w-full max-w-7xl transform transition-all duration-700 hover:scale-[1.02]"
+                  data-aos={idx % 2 === 0 ? 'fade-right' : 'fade-left'}
+                  data-aos-duration="1000"
+                >
                   <img
                     src={feature.image}
                     alt={feature.title}
-                    class="w-full rounded-3xl shadow-2xl border-4 border-white object-contain transition-all duration-300"
+                    class="w-full rounded-3xl shadow-2xl border-4 border-white object-contain transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]"
                     loading="lazy"
                   />
+                  {/* Subtle floating animation */}
+                  <div class="absolute inset-0 rounded-3xl bg-gradient-to-t from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
                 {/* Overlayed text */}
-                <div class="absolute bottom-0 left-0 right-0 md:left-auto md:right-12 md:bottom-12 md:w-[30%] p-4 md:p-8">
-                  <div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border-l-8 border-blue-400 p-6 md:p-10 text-left">
+                <div 
+                  class="absolute bottom-0 left-0 right-0 md:left-auto md:right-12 md:bottom-12 md:w-[30%] p-4 md:p-8"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                  data-aos-duration="800"
+                >
+                  <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border-l-8 border-blue-400 p-6 md:p-10 text-left transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-2xl">
                     <h2 class="text-2xl md:text-4xl font-extrabold mb-3 text-brand-primary">{feature.title}</h2>
                     <p class="text-base md:text-lg text-gray-700">{feature.desc}</p>
                   </div>
@@ -76,12 +94,113 @@ const features = [
           </div>
         ))}
       </div>
-      <div class="text-center mt-12">
-        <a href="/modules" class="inline-block bg-brand-primary text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-brand-accent transition text-lg">
+      <div class="text-center mt-12" data-aos="fade-up">
+        <a href="/modules" class="inline-block bg-brand-primary text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-brand-accent transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-lg">
           ← Back to Modules
         </a>
       </div>
     </div>
   </section>
+  
+  <style>
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in {
+      animation: fade-in 0.8s ease-out;
+    }
+    
+    /* Parallax-like effect on scroll */
+    @media (min-width: 768px) {
+      .parallax-slow {
+        transition: transform 0.5s cubic-bezier(0.17, 0.55, 0.55, 1);
+      }
+    }
+    
+    /* Smooth image loading effect */
+    img {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    img[src] {
+      opacity: 1;
+    }
+    
+    /* Glow effect on hover */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+      }
+      100% {
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+      }
+    }
+    
+    .hover\:shadow-glow:hover {
+      animation: glow 2s ease-in-out infinite;
+    }
+  </style>
+  
+  <script>
+    // Add parallax effect on scroll for desktop
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('[data-aos]');
+      
+      // Intersection Observer for lazy loading enhancement
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('loaded');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      images.forEach(img => {
+        imageObserver.observe(img);
+      });
+      
+      // Smooth parallax on scroll
+      let ticking = false;
+      function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.max-w-7xl');
+        
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.5;
+          const yPos = -(scrolled * speed);
+          element.style.transform = `translateY(${yPos * 0.1}px)`;
+        });
+        
+        ticking = false;
+      }
+      
+      function requestTick() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+      
+      // Only add parallax on desktop
+      if (window.innerWidth > 768) {
+        window.addEventListener('scroll', requestTick);
+      }
+    });
+  </script>
+  
   <Footer slot="footer" />
 </BaseLayout>

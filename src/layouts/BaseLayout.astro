@@ -4,12 +4,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const { title } = Astro.props;
+// Get the canonical URL for the current page
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://screenhrm.com');
 ---
 
 <!doctype html>
 <html lang="en">  <head>    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <!-- Canonical URL to avoid duplicate content issues -->
+    <link rel="canonical" href={canonicalURL} />
     <!-- Standard favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <!-- PNG favicons for specific sizes -->
